@@ -11,7 +11,7 @@ export default class PostProtipForm extends React.Component {
   render() {
     return (
       <div className="post-title">
-        Restaurant name
+        New Protip
         <input className="post-input" type="text" onChange={ (event) => this.state.content = event.target.value } />
         <button onClick={ () => this.props.postProtip({content: this.state.content, username: this.props.user})}>
           Post

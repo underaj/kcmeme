@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar } from './navbar.jsx';
 import { ProtipList } from './protipList.jsx';
 import PostProtipForm from './postProtipForm.jsx';
 import SignUpForm from './signup.jsx';
@@ -18,7 +19,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       protips: dummyList,
-      user: ''
+      user: 'Friend'
     };
   }
   
@@ -53,8 +54,9 @@ export default class App extends React.Component {
 
   getUserDetail() {
     this.props.apiGet('/api/users/getUserDetail', userDetail => {
+      var name = userDetail.username === "ANONYMOUS" ? 'Friend' : userDetail.username;
       this.setState({
-        user: userDetail.username
+        user: name
       });
     });
   }
@@ -76,13 +78,12 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <h2>Popular</h2>
-        <h5>{this.state.user}</h5>
+        <Navbar user={this.state.user}/>
+        <h3>Popular</h3>
         <div>
           <a href='/api/users/signout'>Sign Out</a>
         </div>
         <div>
-          <button onClick={() => this.getUserDetail()}>Get User Detail</button>
         </div>
         Sign In Form
         <SignInForm signin={this.signin.bind(this)} />
