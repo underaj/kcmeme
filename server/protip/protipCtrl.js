@@ -12,6 +12,7 @@ module.exports = {
     // res.send(surveys[id]);
   },
   post: function(req, res) {
+    console.log(req.body);
     Protip.saveNewProtip(req.body, function(protip) {
       res.status(200).send(protip);
     });

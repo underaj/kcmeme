@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var protipSchema = new Schema({
-  content: {type: String, required: true},
+  topText: {type: String, required: true},
+  bottomText: {type: String, required: true},
   author: {type: String, required: true},
   votes: {type: Number, default: 0}
 });
@@ -23,23 +24,32 @@ module.exports.getAll = function(cb) {
 module.exports.saveNewProtip = function(postObj, cb) {
   var content = postObj.content;
   var author = postObj.username;
-  Protip.findOne( {content: content} )
-    .exec(function(err, result) { 
-      if (err) {
-        console.log(err); 
-      } else if (result) {
-        cb(result);
-      } else {
-        var protip = new Protip( {content: content, author: author} );
-        protip.save(function(err, result) {
-          if (err) {
-            console.log(err);
-          } else {
-            cb(result);  
-          }
-        });
-      }
-    });
+  // Protip.findOne( {content: content} )
+  //   .exec(function(err, result) { 
+  //     if (err) {
+  //       console.log(err); 
+  //     } else if (result) {
+  //       cb(result);
+  //     } else {
+  //       var protip = new Protip( {content: content, author: author} );
+  //       protip.save(function(err, result) {
+  //         if (err) {
+  //           console.log(err);
+  //         } else {
+  //           cb(result);  
+  //         }
+  //       });
+  //     }
+  //   });
+
+  var protip = new Protip( {content: content, author: author} );
+  protip.save(function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      cb(result);  
+    }
+  });
 };
 
 module.exports.upVote = function(searchContent, cb) {
