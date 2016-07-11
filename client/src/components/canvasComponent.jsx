@@ -4,7 +4,12 @@ export default class CanvasComponent extends React.Component {
   componentDidMount() {
     this.updateCanvas();
   }
+
+  componentDidUpdate() {
+    this.updateCanvas();
+  }
   updateCanvas() {
+    const that = this;
     const canvas = this.refs.canvas;
     const ctx = canvas.getContext('2d');
     const img = new Image();
@@ -13,6 +18,7 @@ export default class CanvasComponent extends React.Component {
     img.src = "/img/dennisting.png";
     canvas.width = 600;
     canvas.height = 400;
+    console.log(this.props.protip);
     
     img.onload = function() {
       drawProTip();
@@ -27,18 +33,22 @@ export default class CanvasComponent extends React.Component {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
 
-      var text1 = 'hello'.toUpperCase();
+      var topText = 'HI';
+      var bottomText = 'BYE';
+      if (that.props) {
+        topText = that.props.protip.topText.toUpperCase();
+        bottomText = that.props.protip.bottomText.toUpperCase();
+      }
+
       var x = width / 2;
       var y = 0;
 
-      wrapText(ctx, text1, x, y, 300, 28, false);
+      wrapText(ctx, topText, x, y, 300, 28, false);
 
       ctx.textBaseline = 'bottom';
-      var text2 = 'there';
-      text2 = text2.toUpperCase();
       y = height;
 
-      wrapText(ctx, text2, x, y, 300, 28, true);
+      wrapText(ctx, bottomText, x, y, 300, 28, true);
 
     }
 

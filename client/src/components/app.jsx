@@ -8,9 +8,10 @@ import SignInForm from './signin.jsx';
 
 var dummyList = [
  {
-   content: '',
-   author: '',
-   votes: ''
+   topText: 'aaa',
+   bottomText: 'bbb',
+   author: 'ccc',
+   votes: 'ddd'
  }
 ];
 
@@ -39,7 +40,7 @@ export default class App extends React.Component {
   }
 
   postProtip(postObj) {
-    postObj.username = postObj.username || 'ANONYMOUS';
+    postObj.author = postObj.username || 'ANONYMOUS';
     this.props.apiPost('/api/protip', postObj)
       .done((err, data) => {
         this.getProtipList();
