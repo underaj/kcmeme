@@ -76,7 +76,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <h2>Protip</h2>
+        <h2>Popular</h2>
         <h5>{this.state.user}</h5>
         <div>
           <a href='/api/users/signout'>Sign Out</a>
