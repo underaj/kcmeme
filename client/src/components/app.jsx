@@ -19,6 +19,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       protips: dummyList,
+      loggedIn: false,
       user: 'Friend'
     };
   }
@@ -78,15 +79,10 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <MyNavbar user={this.state.user}/>
+        <MyNavbar user={this.state.user} signin={this.signin.bind(this)} />
         <h3>Popular</h3>
         <div>
-          <a href='/api/users/signout'>Sign Out</a>
         </div>
-        <div>
-        </div>
-        Sign In Form
-        <SignInForm signin={this.signin.bind(this)} />
         Sign Up Form
         <SignUpForm signup={this.signup.bind(this)} />
         Post New Protip
