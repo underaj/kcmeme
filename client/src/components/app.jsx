@@ -1,7 +1,7 @@
 import React from 'react';
-import { Navbar } from './navbar.jsx';
 import { ProtipList } from './protipList.jsx';
 import PostProtipForm from './postProtipForm.jsx';
+import MyNavbar from './navbar.jsx';
 import SignUpForm from './signup.jsx';
 import SignInForm from './signin.jsx';
 
@@ -78,7 +78,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <Navbar user={this.state.user}/>
+        <MyNavbar user={this.state.user}/>
         <h3>Popular</h3>
         <div>
           <a href='/api/users/signout'>Sign Out</a>
