@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var SurveyCtrl = require('../survey/survey.controller');
-var UserCtrl = require('../user/user.controller');
+var ProtipCtrl = require('../protip/protipCtrl');
+var UserCtrl = require('../user/userCtrl');
 
 // ProTip Routes
 router.get('/protip', ProtipCtrl.get);
