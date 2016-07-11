@@ -11,7 +11,7 @@ require('./auth/passport');
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(session({ secret: 'AJ is cool..?' }));
+app.use(session({ secret: 'SOMPOPOPOPOP' }));
 app.use(passport.initialize());
 app.use(passport.session());
 

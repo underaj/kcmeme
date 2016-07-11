@@ -4,7 +4,7 @@ var ProtipCtrl = require('../protip/protipCtrl');
 var UserCtrl = require('../user/userCtrl');
 
 // ProTip Routes
-router.get('/protip', ProtipCtrl.get);
+router.get('/protips', ProtipCtrl.get);
 router.get('/protip/:id', ProtipCtrl.getOne);
 router.post('/protip', ProtipCtrl.post);
 router.post('/protip/upvote', ProtipCtrl.upvote);

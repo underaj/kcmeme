@@ -14,9 +14,9 @@ var Protip = mongoose.model('Protip', protipSchema);
 module.exports.Protip = Protip;
 
 module.exports.getAll = function(cb) {
-  Survey.find().sort('-votes').exec()
-  .then(function(surveys) {
-    cb(surveys);
+  Protip.find().sort('-votes').exec()
+  .then(function(Protips) {
+    cb(Protips);
   });
 };
 
@@ -41,15 +41,15 @@ module.exports.saveNewProtip = function(postObj, cb) {
     });
 };
 
-module.exports.upVote = function(postContent, cb) {
-  Protip.findOne( postContent )
-    .exec(function(err, result) { 
+module.exports.upVote = function(searchContent, cb) {
+  Protip.findOne( searchContent )
+    .exec(function(err, protip) { 
       if (err) {
         console.log(err); 
-      } else if (result) {
-        result.votes++;
-        result.save(function(err, data) {
-          cb(result);  
+      } else if (protip) {
+        protip.votes++;
+        protip.save(function(err, data) {
+          cb(protip);  
         });
       }
     });
