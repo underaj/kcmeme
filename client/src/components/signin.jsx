@@ -33,9 +33,9 @@ export default class SignInForm extends React.Component {
     return (
       <div className="post-title">
         Username
-        <input className="signin-input" type="text" onChange={ (event) => this.updateUserForm(event.target.value) } value={this.state.username} />
+        <input className="sign-input" type="text" onChange={ (event) => this.updateUserForm(event.target.value) } value={this.state.username} />
         Password
-        <input className="signin-input" type="password" onChange={ (event) => this.updatePassForm(event.target.value) } value={this.state.password} />
+        <input className="sign-input" type="password" onChange={ (event) => this.updatePassForm(event.target.value) } value={this.state.password} />
         <button className="btn btn-primary" onClick={this.sendSignInForm.bind(this)}>
           Sign in
         </button>

@@ -5,6 +5,7 @@ Protip.find().exec()
     if (protips.length === 0) {
       Protip.create({topText: 'You know what?', bottomText: 'Angular is awesome!', protiper: 'sunny', author: 'den'});
       Protip.create({topText: 'Use angular', bottomText: 'Because it\'s easy(ER)', protiper: 'stevenlin', author: 'den'});
-      Protip.create({topText: 'Angular!', bottomText: 'WOHO!!!', protiper: 'dennis', author: 'den'});
+      Protip.create({topText: 'Angular!', bottomText: 'WOHO!!!', protiper: 'dennis', author: 'dennis'});
+      Protip.create({topText: 'HEHE!', bottomText: 'HEHE!!!', protiper: 'sunny', author: 'dennis'});
     }
   });

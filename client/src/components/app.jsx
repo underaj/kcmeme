@@ -79,13 +79,11 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <MyNavbar username={this.state.username} signin={this.signin.bind(this)} />
+        <MyNavbar username={this.state.username} signin={this.signin.bind(this)} signup={this.signup.bind(this)} />
         <div className='container'>
           <h3>Popular</h3>
           <div>
           </div>
-          Sign Up Form
-          <SignUpForm signup={this.signup.bind(this)} />
           <PostProtipForm postProtip={this.postProtip.bind(this)} username={this.state.username} />
           <ProtipList upVote={this.upVote.bind(this)} protips={this.state.protips} />
         </div>
