@@ -15,7 +15,8 @@ export default class CanvasComponent extends React.Component {
     const img = new Image();
     const width = 600;
     const height = 400;
-    img.src = "/img/dennisting.png";
+    var protiper = this.props.protip.protiper || "dennisting";
+    img.src = "/img/"+protiper+".png";
     canvas.width = 600;
     canvas.height = 400;
     console.log(this.props.protip);

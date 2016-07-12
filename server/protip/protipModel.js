@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var protipSchema = new Schema({
   topText: {type: String, required: true},
   bottomText: {type: String, required: true},
+  protiper: {type: String, required: true},
   author: {type: String, required: true},
   votes: {type: Number, default: 0}
 });

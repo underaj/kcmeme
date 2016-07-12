@@ -21,7 +21,7 @@ export default class App extends React.Component {
     this.state = {
       protips: dummyList,
       loggedIn: false,
-      user: 'Friend'
+      user: ''
     };
   }
   
@@ -40,7 +40,6 @@ export default class App extends React.Component {
   }
 
   postProtip(postObj) {
-    postObj.author = postObj.username || 'ANONYMOUS';
     this.props.apiPost('/api/protip', postObj)
       .done((err, data) => {
         this.getProtipList();
@@ -56,7 +55,7 @@ export default class App extends React.Component {
 
   getUserDetail() {
     this.props.apiGet('/api/users/getUserDetail', userDetail => {
-      var name = userDetail.username === "ANONYMOUS" ? 'Friend' : userDetail.username;
+      var name = userDetail.username;
       this.setState({
         user: name
       });
