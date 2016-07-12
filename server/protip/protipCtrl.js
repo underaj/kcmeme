@@ -7,8 +7,6 @@ module.exports = {
       res.send(protips);
     });
   },
-  getOne: function(req, res) {
-  },
   post: function(req, res) {
     Protip.saveNewProtip(req.body, function(protip) {
       res.status(200).send(protip);

@@ -86,7 +86,6 @@ export default class App extends React.Component {
           </div>
           Sign Up Form
           <SignUpForm signup={this.signup.bind(this)} />
-          Post New Protip
           <PostProtipForm postProtip={this.postProtip.bind(this)} username={this.state.username} />
           <ProtipList upVote={this.upVote.bind(this)} protips={this.state.protips} />
         </div>
