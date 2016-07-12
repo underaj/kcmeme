@@ -8,10 +8,10 @@ import SignInForm from './signin.jsx';
 
 var dummyList = [
  {
-   topText: 'aaa',
-   bottomText: 'bbb',
-   author: 'ccc',
-   votes: 'ddd'
+   topText: '',
+   bottomText: '',
+   author: '',
+   votes: ''
  }
 ];
 
@@ -21,7 +21,7 @@ export default class App extends React.Component {
     this.state = {
       protips: dummyList,
       loggedIn: false,
-      user: ''
+      username: ''
     };
   }
   
@@ -57,7 +57,7 @@ export default class App extends React.Component {
     this.props.apiGet('/api/users/getUserDetail', userDetail => {
       var name = userDetail.username;
       this.setState({
-        user: name
+        username: name
       });
     });
   }
@@ -79,7 +79,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <MyNavbar user={this.state.user} signin={this.signin.bind(this)} />
+        <MyNavbar username={this.state.username} signin={this.signin.bind(this)} />
         <div className='container'>
           <h3>Popular</h3>
           <div>
@@ -87,7 +87,7 @@ export default class App extends React.Component {
           Sign Up Form
           <SignUpForm signup={this.signup.bind(this)} />
           Post New Protip
-          <PostProtipForm postProtip={this.postProtip.bind(this)} user={this.state.user} />
+          <PostProtipForm postProtip={this.postProtip.bind(this)} username={this.state.username} />
           <ProtipList upVote={this.upVote.bind(this)} protips={this.state.protips} />
         </div>
       </div>

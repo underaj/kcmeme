@@ -1,4 +1,3 @@
-
 export var apiGet = function apiGet (path, callback) {
   var jqXHR = $.get('http://localhost:8080' + path);
   jqXHR.done(data => callback(data));

@@ -8,8 +8,6 @@ module.exports = {
     });
   },
   getOne: function(req, res) {
-    // var id = req.params.id;
-    // res.send(surveys[id]);
   },
   post: function(req, res) {
     Protip.saveNewProtip(req.body, function(protip) {

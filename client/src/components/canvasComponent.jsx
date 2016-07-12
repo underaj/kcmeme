@@ -19,7 +19,6 @@ export default class CanvasComponent extends React.Component {
     img.src = "/img/"+protiper+".png";
     canvas.width = 600;
     canvas.height = 400;
-    console.log(this.props.protip);
     
     img.onload = function() {
       drawProTip();

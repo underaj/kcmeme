@@ -6,7 +6,7 @@ export default class MyNavbar extends React.Component {
   render() {
     var signInOrLogOut;
     var loggedInAs;
-    if (this.props.user === 'Friend') {
+    if (this.props.username === 'ANONYMOUS') {
       loggedInAs = '';
       signInOrLogOut = <NavDropdown eventKey={1} title="Log In" id="basic-nav-dropdown">
                          <SignInForm signin={this.props.signin} />
@@ -15,7 +15,7 @@ export default class MyNavbar extends React.Component {
                        </NavDropdown>
     } else {
       loggedInAs = <Navbar.Text>
-                     Signed in as: {this.props.user}!
+                     Signed in as: {this.props.username}!
                    </Navbar.Text>
       signInOrLogOut= <NavItem eventKey={2} href="/api/users/signout">Sign Out</NavItem>
     }

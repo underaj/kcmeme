@@ -18,7 +18,7 @@ export default class PostProtipForm extends React.Component {
         <input className="post-input" type="text" onChange={ (event) => this.state.topText = event.target.value } />
         <p>Bottom Text</p>
         <input className="post-input" type="text" onChange={ (event) => this.state.bottomText = event.target.value } />
-        <button onClick={ () => this.props.postProtip({ topText: this.state.topText, bottomText: this.state.bottomText, author: this.props.user, protiper: this.state.protiper})}>
+        <button onClick={ () => this.props.postProtip({ topText: this.state.topText, bottomText: this.state.bottomText, author: this.props.username, protiper: this.state.protiper})}>
         Post
         </button>
       </div>
