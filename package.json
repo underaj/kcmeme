@@ -4,6 +4,7 @@
   "description": "Pro tip blog",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webpack --config ./webpack-prod.config.js --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
     "comp": "webpack --watch"
