@@ -21,7 +21,7 @@ export default class MyNavbar extends React.Component {
     } else {
       signUp = '';
       loggedInAs = <Navbar.Text>
-                     Signed in as: {this.props.username}!
+                     Hello {this.props.username}!
                    </Navbar.Text>
       signInOrLogOut= <NavItem eventKey={2} href="/api/users/signout">Sign Out</NavItem>
     }
@@ -35,6 +35,10 @@ export default class MyNavbar extends React.Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse >
+          <Nav>
+            <NavItem eventKey={1} onClick={() => this.props.changeGetType('vote')}>Popular</NavItem>
+            <NavItem eventKey={2} onClick={() => this.props.changeGetType('time')}>Fresh</NavItem>
+          </Nav>
           <Nav pullRight>
             {loggedInAs}
             {signUp}

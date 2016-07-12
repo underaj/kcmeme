@@ -2,8 +2,13 @@ var Protip = require('./protipModel');
 require('../seed/protipSeed');
 
 module.exports = {
-  get: function(req, res) {
-    Protip.getAll(function(protips) {
+  getByVote: function(req, res) {
+    Protip.getByVote(function(protips) {
+      res.send(protips);
+    });
+  },
+  getByTime: function(req, res) {
+    Protip.getByTime(function(protips) {
       res.send(protips);
     });
   },

@@ -15,10 +15,17 @@ var Protip = mongoose.model('Protip', protipSchema);
 
 module.exports.Protip = Protip;
 
-module.exports.getAll = function(cb) {
+module.exports.getByVote = function(cb) {
   Protip.find().sort('-votes').exec()
-  .then(function(Protips) {
-    cb(Protips);
+  .then(function(protips) {
+    cb(protips);
+  });
+};
+
+module.exports.getByTime = function(cb) {
+  Protip.find().sort('-createdAt').exec()
+  .then(function(protips) {
+    cb(protips);
   });
 };
 

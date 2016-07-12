@@ -21,6 +21,7 @@ export default class App extends React.Component {
     this.state = {
       protips: dummyList,
       loggedIn: false,
+      getType: 'vote',
       username: ''
     };
   }
@@ -31,8 +32,14 @@ export default class App extends React.Component {
     // get username from server
   }
 
-  getProtipList() {
-    this.props.apiGet('/api/protips', newProtipList => {
+  changeGetType(type) {
+    this.setState({getType: type});
+    this.getProtipList(type);
+  }
+
+  getProtipList(type) {
+    type = type || this.state.getType;
+    this.props.apiGet('/api/protips/'+type, newProtipList => {
       this.setState({
         protips: newProtipList
       });
@@ -77,11 +84,18 @@ export default class App extends React.Component {
   }
 
   render () {
+    var page = '';
+    if (this.state.getType === 'vote') {
+      page = 'Popular';
+    } else {
+      page = 'Fresh';
+    }
+
     return (
       <div>
-        <MyNavbar username={this.state.username} signin={this.signin.bind(this)} signup={this.signup.bind(this)} />
+        <MyNavbar username={this.state.username} signin={this.signin.bind(this)} signup={this.signup.bind(this)} changeGetType={this.changeGetType.bind(this)}/>
         <div className='container'>
-          <h3>Popular</h3>
+          <h3>{page}</h3>
           <div>
           </div>
           <PostProtipForm postProtip={this.postProtip.bind(this)} username={this.state.username} />

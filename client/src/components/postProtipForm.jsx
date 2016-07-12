@@ -6,7 +6,7 @@ export default class PostProtipForm extends React.Component {
     this.state = {
       topText: '',
       bottomText: '',
-      protiper: 'dennis'
+      protiper: 'abraham'
     };
   }
 
